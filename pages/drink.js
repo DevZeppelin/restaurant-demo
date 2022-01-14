@@ -2,8 +2,8 @@ import React from 'react'
 
 const drink = () => {
     return (
-        <div>
-           from drink 
+        <div className='mx-0 text-2xl p-6'>
+          Desde bebidas
         </div>
     )
 }
