@@ -7,14 +7,11 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      'white': '#ffffff',
-      'purple': '#3f3cbb',
-      'midnight': '#121063',
-      'metal': '#565584',
-      'tahiti': '#3ab7bf',
-      'silver': '#ecebff',
-      'bubble-gum': '#ff77e9',
-      'bermuda': '#78dcca',
+      'white': '#f6f6f6',
+      'red': '#f63f51',
+      'yellow': '#ffea85',
+      'blue': '#7987c8'
+      
     },
     extend: {},
   },

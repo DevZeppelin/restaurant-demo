@@ -11,15 +11,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-slate-100 mx-auto pb-6">
-        <img src="/logo.png" alt="logo restaurant qr demo" className="mx-auto w-50 h-60 py-4" />
+      <main className="background mx-auto pb-6">
+        <img
+          src="/logo.png"
+          alt="logo restaurant qr demo"
+          className="mx-auto w-50 h-60 py-4 p-4"
+        />
 
         <div className="flex">
           <div className=" w-1/5">
-
-            <img src="/heineken.png" alt="heineken" className="p-2" />
+            <img src="/heineken.png" alt="heineken" className="p-5 md:p-10" />
           </div>
-          <div className="w-4/5">
+          <div className="w-4/5 md:grid md:grid-cols-2 place-content-start">
             <Link href="/breakfast">
               <a>
                 <MainCard

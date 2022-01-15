@@ -38,7 +38,7 @@ const Lunch = ({ almuerzos }) => {
 
       <div className="flex justify-center">
         <button
-          className="py-3 px-10 my-4 text-lg uppercase rounded-md border-2 bg-slate-300 border-black font-bold"
+          className="py-3 px-10 my-4 text-lg uppercase font-bold"
           onClick={() => router.back()}
         >
           Volver 👈
