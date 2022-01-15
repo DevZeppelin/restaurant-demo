@@ -57,7 +57,7 @@ export default function Home() {
             </a>
             <a>
               <MainCard
-                src={"/cake.png"}
+                src={"/promos.png"}
                 alt={"promociones restaurant"}
                 title={"Promociones"}
               />
