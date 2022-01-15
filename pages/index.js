@@ -1,8 +1,21 @@
 import Head from "next/head";
 import MainCard from "../components/MainCard";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [cargando, setCargando] = useState(true);
+
+  useEffect(() => {
+    const initFunction = () => {
+      setTimeout(() => {
+        setCargando(!cargando);
+      }, 4000);
+    };
+    initFunction();
+  }, []);
+  console.log(cargando);
+
   return (
     <div>
       <Head>
@@ -12,6 +25,12 @@ export default function Home() {
       </Head>
 
       <main className="background mx-auto pb-6">
+        {cargando ? (
+          <video autoPlay muted>
+            <source src="/init.mp4" type="video/mp4" />
+          </video>
+        ) : null}
+
         <img
           src="/logo.png"
           alt="logo restaurant qr demo"
