@@ -45,8 +45,7 @@ export default function Home() {
         />
 
         <div className="flex">
-          <div className=" w-1/5">
-            <img src="/heineken.png" alt="heineken" className={openEat ? ("p-5 md:p-10 mt-6 pt-96") : ("p-5 md:p-10 pt-48")} />
+          <div className=" w-1/5">           
           </div>
           <div className="w-3/5 md:grid md:grid-cols-2 flex flex-col justify-center">
             <button onClick={() => setOpenEat(!openEat)}>

@@ -17,16 +17,23 @@ const Drink = ({ bebidas }) => {
           Menú de bebida
         </h1>
       </div>
+      <div className="flex">
+        <div className="w-1/6">
+        <img src="/heineken.png" alt="heineken" className="p-2 md:p-4" />
 
-      {data.map((bebida, index = 0) => (
-        <SectionCard
-          key={Math.random()}
-          productName={bebida.data.titulo[0].text}
-          productDescription={bebida.data.descripcion[0].text}
-          productImgSrc={bebida.data.imagen.url}
-          price={bebida.data.precio[0].text}
-        />
-      ))}
+        </div>
+        <div className="w-5/6">
+          {data.map((bebida, index = 0) => (
+            <SectionCard
+              key={Math.random()}
+              productName={bebida.data.titulo[0].text}
+              productDescription={bebida.data.descripcion[0].text}
+              productImgSrc={bebida.data.imagen.url}
+              price={bebida.data.precio[0].text}
+            />
+          ))}
+        </div>
+      </div>
 
       <div className="flex justify-center">
         <button
