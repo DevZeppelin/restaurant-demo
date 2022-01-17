@@ -45,7 +45,7 @@ export default Cake;
 //this function is called everytime a request/refresh is made
 export async function getServerSideProps() {
   const bebidas = await Client().query(
-    Prismic.Predicates.at("document.type", "postre")
+    Prismic.Predicates.at("document.type", "postres")
   );
 
   return {

@@ -12,7 +12,7 @@ const Drink = ({ bebidas }) => {
   return (
     <div className="text-center min-h-screen">
       <div>
-        <img className="mx-auto my-4 mt-10 min-h-screen" src="/drink.png" alt="bebida" />
+        <img className="mx-auto my-4 mt-10" src="/drink.png" alt="bebida" />
         <h1 className="text-2xl uppercase font-bold pb-6 text-gray-700">
           Menú de bebida
         </h1>
@@ -45,7 +45,7 @@ export default Drink;
 //this function is called everytime a request/refresh is made
 export async function getServerSideProps() {
   const bebidas = await Client().query(
-    Prismic.Predicates.at("document.type", "bebida")
+    Prismic.Predicates.at("document.type", "bebidas")
   );
 
   return {

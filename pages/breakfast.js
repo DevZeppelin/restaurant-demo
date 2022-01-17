@@ -12,7 +12,7 @@ const Breakfast = ({ desayunos }) => {
   return (
     <div className="text-center min-h-screen">
       <div>
-        <img className="mx-auto my-4 mt-10" src="/lunch.png" alt="desayuno" />
+        <img className="mx-auto my-4 mt-10" src="/breakfast.png" alt="desayuno" />
         <h1 className="text-2xl uppercase font-bold pb-6 text-gray-700">
           Menú de desayuno
         </h1>
