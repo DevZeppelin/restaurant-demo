@@ -41,12 +41,12 @@ export default function Home() {
         <img
           src="/logo.png"
           alt="logo restaurant qr demo"
-          className="logo-animation mx-auto w-50 h-60 py-4 p-4"
+          className="logo-animation mx-auto w-40 h-50 py-4 p-4"
         />
 
         <div className="flex">
           <div className=" w-1/5">
-            <img src="/heineken.png" alt="heineken" className="p-5 md:p-10" />
+            <img src="/heineken.png" alt="heineken" className={openEat ? ("p-5 md:p-10 mt-6 pt-96") : ("p-5 md:p-10 pt-48")} />
           </div>
           <div className="w-3/5 md:grid md:grid-cols-2 flex flex-col justify-center">
             <button onClick={() => setOpenEat(!openEat)}>
