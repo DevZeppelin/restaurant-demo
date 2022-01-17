@@ -1,18 +1,16 @@
 import Prismic from "prismic-javascript";
 import { Client } from "../prismic-configuration";
-import { RichText } from "prismic-reactjs";
 import { useRouter } from "next/router";
 import SectionCard from "../components/SectionCard";
 
 const Lunch = ({ almuerzos }) => {
   const router = useRouter();
 
-  console.log(almuerzos.results[0].data.titulo[0].text);
   console.log(almuerzos.results);
-  console.log(almuerzos.results[0].data.imagen.url);
+  const data = almuerzos.results;
 
   return (
-    <div className="text-center">
+    <div className="text-center min-h-screen">
       <div>
         <img className="mx-auto my-4 mt-10" src="/lunch.png" alt="almuerzo" />
         <h1 className="text-2xl uppercase font-bold pb-6 text-gray-700">
@@ -20,21 +18,15 @@ const Lunch = ({ almuerzos }) => {
         </h1>
       </div>
 
-      <SectionCard
-        productName={almuerzos.results[0].data.titulo[0].text}
-        productDescription={almuerzos.results[0].data.descripcion[0].text}
-        productImgSrc={almuerzos.results[0].data.imagen.url}
-        price={almuerzos.results[0].data.precio[0].text}
-      />
-
-      <SectionCard
-        imgSrc={"/lunch.png"}
-        title={"Almuerzo"}
-        productName={almuerzos.results[1].data.titulo[0].text}
-        productDescription={almuerzos.results[1].data.descripcion[0].text}
-        productImgSrc={almuerzos.results[1].data.imagen.url}
-        price={almuerzos.results[1].data.precio[0].text}
-      />
+      {data.map((almuerzo, index = 0) => (
+        <SectionCard
+          key={Math.random()}
+          productName={almuerzo.data.titulo[0].text}
+          productDescription={almuerzo.data.descripcion[0].text}
+          productImgSrc={almuerzo.data.imagen.url}
+          price={almuerzo.data.precio[0].text}
+        />
+      ))}
 
       <div className="flex justify-center">
         <button

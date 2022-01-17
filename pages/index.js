@@ -1,10 +1,9 @@
 import Head from "next/head";
 import MainCard from "../components/MainCard";
 import Link from "next/link";
+import MainButton from "../components/MainButton";
 
 export default function Home() {
-
-
   /*VIDEO INTRO
   
   const [cargando, setCargando] = useState(true);
@@ -44,7 +43,7 @@ export default function Home() {
           <div className=" w-1/5">
             <img src="/heineken.png" alt="heineken" className="p-5 md:p-10" />
           </div>
-          <div className="w-4/5 md:grid md:grid-cols-2 place-content-start">
+          <div className="w-3/5 md:grid md:grid-cols-2">
             <Link href="/breakfast">
               <a>
                 <MainCard
@@ -63,28 +62,41 @@ export default function Home() {
                 />
               </a>
             </Link>
-            <a>
-              <MainCard
-                src={"/drink.png"}
-                alt={"desayuno restaurant"}
-                title={"Bebidas"}
-              />
-            </a>
-            <a>
-              <MainCard
-                src={"/cake.png"}
-                alt={"desayuno restaurant"}
-                title={"Postres"}
-              />
-            </a>
-            <a>
-              <MainCard
-                src={"/promos.png"}
-                alt={"promociones restaurant"}
-                title={"Promociones"}
-              />
-            </a>
+            <Link href="/drink">
+              <a>
+                <MainCard
+                  src={"/drink.png"}
+                  alt={"desayuno restaurant"}
+                  title={"Bebidas"}
+                />
+              </a>
+            </Link>
+            <Link href="/cake">
+              <a>
+                <MainCard
+                  src={"/cake.png"}
+                  alt={"desayuno restaurant"}
+                  title={"Postres"}
+                />
+              </a>
+            </Link>
+
+            <Link href="/promo">
+              <a>
+                <MainCard
+                  src={"/promos.png"}
+                  alt={"promociones restaurant"}
+                  title={"Promociones"}
+                />
+              </a>
+            </Link>
           </div>
+          <div className="w-1/5"></div>
+        </div>
+        <div className="flex flex-col space-y-4">
+          <MainButton text="Agregar Reseña" src="./google.png"/>
+          <MainButton text="Pagar" src="./pay.png"/>
+         
         </div>
       </main>
     </div>

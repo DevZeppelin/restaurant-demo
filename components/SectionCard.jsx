@@ -6,7 +6,7 @@ const SectionCard = ({
 }) => {
   return (
     <div className="text-center">
-      <div className="pt-6 p-2 mx-2 border-2 border-blue my-4 space-y-4 mx-auto rounded-md bg-slate-200">
+      <div className="pt-6 p-4 mx-4 border-2 border-blue my-4 space-y-4 rounded-md bg-slate-200">
         <h2 className="uppercase text-base font-black"> {productName}</h2>
         <div className="flex gap-4">
           <p className="text-sm my-auto">{productDescription}</p>
