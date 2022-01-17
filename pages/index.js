@@ -41,7 +41,7 @@ export default function Home() {
         <img
           src="/logo.png"
           alt="logo restaurant qr demo"
-          className="logo-animation mx-auto w-40 h-50 py-4 p-4"
+          className="logo-animation mx-auto   w-40 h-50 py-4 p-4"
         />
 
         <div className="flex">
@@ -85,7 +85,7 @@ export default function Home() {
             ) : null}
 
             <button onClick={() => setOpenDrink(!openDrink)}>
-              <MainCardMother src="/drink.png" title="Para beber" />
+              <MainCardMother src="/drink.png" title="Bebidas" />
             </button>
             {openDrink ? (
               <div className="grid grid-cols-2">
