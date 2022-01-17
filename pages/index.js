@@ -2,6 +2,8 @@ import Head from "next/head";
 import MainCard from "../components/MainCard";
 import Link from "next/link";
 import MainButton from "../components/MainButton";
+import { useState } from "react";
+import MainCardMother from "../components/MainCardMother";
 
 export default function Home() {
   /*VIDEO INTRO
@@ -17,6 +19,9 @@ export default function Home() {
     initFunction();
   }, []);
   console.log(cargando); */
+
+  const [openEat, setOpenEat] = useState(false);
+  const [openDrink, setOpenDrink] = useState(false);
 
   return (
     <div>
@@ -36,54 +41,96 @@ export default function Home() {
         <img
           src="/logo.png"
           alt="logo restaurant qr demo"
-          className="mx-auto w-50 h-60 py-4 p-4"
+          className="logo-animation mx-auto w-50 h-60 py-4 p-4"
         />
 
         <div className="flex">
           <div className=" w-1/5">
             <img src="/heineken.png" alt="heineken" className="p-5 md:p-10" />
           </div>
-          <div className="w-3/5 md:grid md:grid-cols-2">
-            <Link href="/breakfast">
-              <a>
-                <MainCard
-                  src={"/breakfast.png"}
-                  alt={"desayuno restaurant"}
-                  title={"Desayuno"}
-                />
-              </a>
-            </Link>
-            <Link href="/lunch">
-              <a>
-                <MainCard
-                  src={"/lunch.png"}
-                  alt={"desayuno restaurant"}
-                  title={"Almuerzo/Cena"}
-                />
-              </a>
-            </Link>
-            <Link href="/drink">
-              <a>
-                <MainCard
-                  src={"/drink.png"}
-                  alt={"desayuno restaurant"}
-                  title={"Bebidas"}
-                />
-              </a>
-            </Link>
-            <Link href="/cake">
-              <a>
-                <MainCard
-                  src={"/cake.png"}
-                  alt={"desayuno restaurant"}
-                  title={"Postres"}
-                />
-              </a>
-            </Link>
+          <div className="w-3/5 md:grid md:grid-cols-2 flex flex-col justify-center">
+            <button onClick={() => setOpenEat(!openEat)}>
+              <MainCardMother src="/lunch.png" title="Para comer" />
+            </button>
+            {openEat ? (
+              <div className="grid grid-cols-2">
+                <Link href="/breakfast">
+                  <a>
+                    <MainCard
+                      src={"/breakfast.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Desayuno"}
+                    />
+                  </a>
+                </Link>
+                <Link href="/lunch">
+                  <a>
+                    <MainCard
+                      src={"/lunch2.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Principal"}
+                    />
+                  </a>
+                </Link>
+                <Link href="/cake">
+                  <a>
+                    <MainCard
+                      src={"/cake.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Postres"}
+                    />
+                  </a>
+                </Link>
+              </div>
+            ) : null}
+
+            <button onClick={() => setOpenDrink(!openDrink)}>
+              <MainCardMother src="/drink.png" title="Para beber" />
+            </button>
+            {openDrink ? (
+              <div className="grid grid-cols-2">
+                <Link href="/drink">
+                  <a>
+                    <MainCard
+                      src={"/drink2.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Refrescos"}
+                    />
+                  </a>
+                </Link>
+                <Link href="/drink">
+                  <a>
+                    <MainCard
+                      src={"/wine.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Vinos"}
+                    />
+                  </a>
+                </Link>
+                <Link href="/drink">
+                  <a>
+                    <MainCard
+                      src={"/beer.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Cervezas"}
+                    />
+                  </a>
+                </Link>
+                <Link href="/drink">
+                  <a>
+                    <MainCard
+                      src={"/licor.png"}
+                      alt={"desayuno restaurant"}
+                      title={"Tragos"}
+                    />
+                  </a>
+                </Link>
+              </div>
+            ) : null}
 
             <Link href="/promo">
               <a>
-                <MainCard
+                <MainCardMother
                   src={"/promos.png"}
                   alt={"promociones restaurant"}
                   title={"Promociones"}
@@ -93,10 +140,9 @@ export default function Home() {
           </div>
           <div className="w-1/5"></div>
         </div>
-        <div className="flex flex-col space-y-4">
-          <MainButton text="Agregar Reseña" src="./google.png"/>
-          <MainButton text="Pagar" src="./pay.png"/>
-         
+        <div className="flex flex-col space-y-1">
+          <MainButton text="Agregar Reseña" src="./google.png" />
+          <MainButton text="Pagar" src="./pay.png" />
         </div>
       </main>
     </div>

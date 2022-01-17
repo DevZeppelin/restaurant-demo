@@ -2,10 +2,10 @@ import React from 'react'
 
 const MainCard = ({src, alt, title}) => {
     return (
-        <div className='m-2 py-6 mx-0 text-center bg-slate-200'>
+        <div className='m-2 py-2 mx-0 text-center'>
             <div className='mx-2'>
-                <img className='mx-auto' src={src} alt={alt} />
-                <p className='text-2xl font-semibold mt-2'>{title}</p>
+                <img className='mx-auto h-12 w-12' src={src} alt={alt} />
+                <p className=' text-center text-lg font-semibold mt-2 mx-auto'>{title}</p>
             </div>
         </div>
     )
