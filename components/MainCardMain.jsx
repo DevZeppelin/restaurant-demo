@@ -5,7 +5,7 @@ const MainCardMother = ({src, alt, title}) => {
         <div className='m-2 pt-6 text-center bg-slate-200' >
             <div className='mx-2'>
                 <img className='mx-auto' src={src} alt={alt} />
-                <p className='text-xl font-bold mt-2'>{title}</p>
+                <p className='text-3xl font-bolder mt-2'>{title}</p>
             </div>
         </div>
     )

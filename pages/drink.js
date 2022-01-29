@@ -1,10 +1,12 @@
 import Prismic from "prismic-javascript";
+import Link from "next/link";
 import { Client } from "../prismic-configuration";
 import { useRouter } from "next/router";
 import SectionCard from "../components/SectionCard";
 
 const Drink = ({ bebidas }) => {
   const router = useRouter();
+  
 
   console.log(bebidas.results);
   const data = bebidas.results;
@@ -23,7 +25,7 @@ const Drink = ({ bebidas }) => {
 
         </div>
         <div className="w-5/6">
-          {data.map((bebida, index = 0) => (
+          {data.map((bebida) => (
             <SectionCard
               key={Math.random()}
               productName={bebida.data.titulo[0].text}
@@ -36,12 +38,17 @@ const Drink = ({ bebidas }) => {
       </div>
 
       <div className="flex justify-center">
-        <button
-          className="py-3 px-10 my-4 text-lg uppercase font-bold"
-          onClick={() => router.back()}
-        >
-          Volver 👈
-        </button>
+      
+         <button
+            className="py-3 px-10 my-4 text-lg uppercase font-bold"
+            onClick={ () => router.back()   }
+         >
+         
+         
+              Volver 👈
+            </button>
+       
+        
       </div>
     </div>
   );

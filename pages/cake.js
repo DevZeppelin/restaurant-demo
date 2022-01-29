@@ -3,11 +3,11 @@ import { Client } from "../prismic-configuration";
 import { useRouter } from "next/router";
 import SectionCard from "../components/SectionCard";
 
-const Cake = ({ bebidas }) => {
+const Cake = ({ postres }) => {
   const router = useRouter();
 
-  console.log(bebidas.results);
-  const data = bebidas.results;
+  console.log(postres.results);
+  const data = postres.results;
 
   return (
     <div className="text-center min-h-screen">
@@ -44,13 +44,13 @@ export default Cake;
 
 //this function is called everytime a request/refresh is made
 export async function getServerSideProps() {
-  const bebidas = await Client().query(
+  const postres = await Client().query(
     Prismic.Predicates.at("document.type", "postres")
   );
 
   return {
     props: {
-      bebidas: bebidas,
+      postres: postres,
     },
   };
 }

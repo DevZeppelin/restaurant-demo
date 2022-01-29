@@ -4,6 +4,7 @@ import Link from "next/link";
 import MainButton from "../components/MainButton";
 import { useState } from "react";
 import MainCardMother from "../components/MainCardMother";
+import MainCardMain from "../components/MainCardMain";
 
 export default function Home() {
   /*VIDEO INTRO
@@ -20,6 +21,7 @@ export default function Home() {
   }, []);
   console.log(cargando); */
 
+  const [openMenu, setOpenMenu] = useState(false);
   const [openEat, setOpenEat] = useState(false);
   const [openDrink, setOpenDrink] = useState(false);
 
@@ -31,7 +33,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="background mx-auto pb-6">
+      <main className="background mx-auto pb-6 justify-center flex flex-col min-h-screen">
         {/* {cargando ? (
           <video autoPlay muted>
             <source src="/init.mp4" type="video/mp4" />
@@ -41,103 +43,120 @@ export default function Home() {
         <img
           src="/logo.png"
           alt="logo restaurant qr demo"
-          className="logo-animation mx-auto   w-40 h-50 py-4 p-4"
+          className="logo-animation mx-auto w-40 h-50 py-4 p-4"
         />
 
         <div className="flex">
-          <div className=" w-1/5">           
-          </div>
-          <div className="w-3/5 md:grid md:grid-cols-2 flex flex-col justify-center">
-            <button onClick={() => setOpenEat(!openEat)}>
-              <MainCardMother src="/lunch.png" title="Para comer" />
-            </button>
-            {openEat ? (
-              <div className="grid grid-cols-2">
-                <Link href="/breakfast">
+          <div className="md:grid md:grid-cols-2 flex flex-col justify-center mx-auto">
+           
+             <div className=" flex-wrap mx-auto">
+               
+                  <Link href="/carta">
+                    <button>
+                      <MainCardMain src="/carta.png" title="Carta" />
+                    </button>
+                  </Link>
+                  <button onClick={() => setOpenMenu(!openMenu)}>
+                    <MainCardMain src="/menu.png" title="Menú" />
+                  </button>
+               
+             </div>
+            
+
+            {openMenu ? (
+
+              <div className="flex flex-col justify-center">
+                <button onClick={() => setOpenEat(!openEat)}>
+                  <MainCardMother src="/lunch.png" title="Para comer" />
+                </button>
+                {openEat ? (
+                  <div className="grid grid-cols-2">
+                    <Link href="/breakfast">
+                      <a>
+                        <MainCard
+                          src={"/breakfast.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Desayuno"}
+                        />
+                      </a>
+                    </Link>
+                    <Link href="/lunch">
+                      <a>
+                        <MainCard
+                          src={"/lunch2.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Principal"}
+                        />
+                      </a>
+                    </Link>
+                    <Link href="/cake">
+                      <a>
+                        <MainCard
+                          src={"/cake.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Postres"}
+                        />
+                      </a>
+                    </Link>
+                  </div>
+                ) : null}
+
+                <button onClick={() => setOpenDrink(!openDrink)}>
+                  <MainCardMother src="/drink.png" title="Bebidas" />
+                </button>
+                {openDrink ? (
+                  <div className="grid grid-cols-2">
+                    <Link href="/drink">
+                      <a>
+                        <MainCard
+                          src={"/drink2.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Refrescos"}
+                        />
+                      </a>
+                    </Link>
+                    <Link href="/drink">
+                      <a>
+                        <MainCard
+                          src={"/wine.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Vinos"}
+                        />
+                      </a>
+                    </Link>
+                    <Link href="/drink">
+                      <a>
+                        <MainCard
+                          src={"/beer.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Cervezas"}
+                        />
+                      </a>
+                    </Link>
+                    <Link href="/drink">
+                      <a>
+                        <MainCard
+                          src={"/licor.png"}
+                          alt={"desayuno restaurant"}
+                          title={"Tragos"}
+                        />
+                      </a>
+                    </Link>
+                  </div>
+                ) : null}
+
+                <Link href="/promo">
                   <a>
-                    <MainCard
-                      src={"/breakfast.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Desayuno"}
-                    />
-                  </a>
-                </Link>
-                <Link href="/lunch">
-                  <a>
-                    <MainCard
-                      src={"/lunch2.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Principal"}
-                    />
-                  </a>
-                </Link>
-                <Link href="/cake">
-                  <a>
-                    <MainCard
-                      src={"/cake.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Postres"}
+                    <MainCardMother
+                      src={"/promos.png"}
+                      alt={"promociones restaurant"}
+                      title={"Promociones"}
                     />
                   </a>
                 </Link>
               </div>
             ) : null}
-
-            <button onClick={() => setOpenDrink(!openDrink)}>
-              <MainCardMother src="/drink.png" title="Bebidas" />
-            </button>
-            {openDrink ? (
-              <div className="grid grid-cols-2">
-                <Link href="/drink">
-                  <a>
-                    <MainCard
-                      src={"/drink2.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Refrescos"}
-                    />
-                  </a>
-                </Link>
-                <Link href="/drink">
-                  <a>
-                    <MainCard
-                      src={"/wine.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Vinos"}
-                    />
-                  </a>
-                </Link>
-                <Link href="/drink">
-                  <a>
-                    <MainCard
-                      src={"/beer.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Cervezas"}
-                    />
-                  </a>
-                </Link>
-                <Link href="/drink">
-                  <a>
-                    <MainCard
-                      src={"/licor.png"}
-                      alt={"desayuno restaurant"}
-                      title={"Tragos"}
-                    />
-                  </a>
-                </Link>
-              </div>
-            ) : null}
-
-            <Link href="/promo">
-              <a>
-                <MainCardMother
-                  src={"/promos.png"}
-                  alt={"promociones restaurant"}
-                  title={"Promociones"}
-                />
-              </a>
-            </Link>
           </div>
-          <div className="w-1/5"></div>
         </div>
         <div className="flex flex-col space-y-1">
           <MainButton text="Agregar Reseña" src="./google.png" />
