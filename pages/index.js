@@ -2,7 +2,7 @@ import Head from "next/head";
 import MainCard from "../components/MainCard";
 import Link from "next/link";
 import MainButton from "../components/MainButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainCardMother from "../components/MainCardMother";
 import MainCardMain from "../components/MainCardMain";
 
@@ -21,9 +21,23 @@ export default function Home() {
   }, []);
   console.log(cargando); */
 
+  
+
   const [openMenu, setOpenMenu] = useState(false);
   const [openEat, setOpenEat] = useState(false);
   const [openDrink, setOpenDrink] = useState(false);
+
+  useEffect(() => {
+    setOpenMenu(JSON.parse(window.localStorage.getItem('openMenu')));
+    setOpenEat(JSON.parse(window.localStorage.getItem('openEat')));
+    setOpenDrink(JSON.parse(window.localStorage.getItem('openDrink')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('openMenu', openMenu);
+    window.localStorage.setItem('openEat', openEat);
+    window.localStorage.setItem('openDrink', openDrink);
+  }, [openEat, openMenu, openDrink]);
 
   return (
     <div>
